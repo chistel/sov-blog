@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\Events\Users\UserHasRegistered;
-use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
+use App\Listeners\Users\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider
@@ -14,9 +14,6 @@ class EventServiceProvider extends ServiceProvider
      * @var array<class-string, array<int, class-string>>
      */
     protected $listen = [
-        /*Registered::class => [
-            SendEmailVerificationNotification::class,
-        ],*/
         UserHasRegistered::class => [
             SendEmailVerificationNotification::class,
         ],
