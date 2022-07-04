@@ -5,7 +5,6 @@ namespace App\Listeners\Users;
 use App\Events\Users\UserHasRegistered;
 use App\Notifications\Users\VerifyEmail;
 use App\Services\Tokens\Users\EmailConfirmation;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Platform\Tokens\TokenManager;
 
 class SendEmailVerificationNotification
