@@ -20,7 +20,6 @@
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
         "plank/laravel-metable": "^5.2",
-        "spatie/laravel-markdown": "^2.2",
         "spatie/laravel-sluggable": "^3.4"
     },
     "require-dev": {

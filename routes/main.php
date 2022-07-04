@@ -93,14 +93,14 @@ Route::group(['middleware' => ['auth:user']], static function () {
         Route::group(['as' => 'single.', 'prefix' => '{article}'], static function (){
             Route::get('edit', [ManageArticleController::class, 'editForm'])->defaults('_config', [
                 'view' => 'main.articles.form',
-            ])->name('edit');
-            Route::post('edit', [ManageArticleController::class, 'update']);
+            ])->name('edit')->middleware('article.can-update-delete');
+            Route::post('edit', [ManageArticleController::class, 'update'])->middleware('article.can-update-delete');
 
             Route::get('single', [ArticleController::class, 'single'])->defaults('_config', [
                 'view' => 'main.articles.single',
             ])->name('view');
 
-            Route::delete('remove', [ManageArticleController::class, 'delete'])->name('remove');
+            Route::delete('remove', [ManageArticleController::class, 'delete'])->name('remove')->middleware('article.can-update-delete');
         });
     });
 });
